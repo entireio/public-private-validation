@@ -1,0 +1,7 @@
+#!/bin/sh
+#MISE description="Build the dummy CLI"
+
+OUTPUT="dummy"
+case "$(uname -s)" in MINGW*|MSYS*|CYGWIN*|Windows_NT) OUTPUT="dummy.exe" ;; esac
+
+go build -o "$OUTPUT" ./cmd/dummy

@@ -1,0 +1,16 @@
+[tools]
+go = '1.25.2'
+golangci-lint = '2.11.3'
+shellcheck = 'latest'
+
+[tasks.fmt]
+description = "Run gofmt"
+run = "gofmt -s -w ."
+
+[tasks.test]
+description = "Run tests"
+run = "go test ./..."
+
+[tasks.check]
+description = "Run formatting, linting, and tests"
+depends = ["fmt", "lint", "test"]
