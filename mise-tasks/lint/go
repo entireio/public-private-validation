@@ -1,0 +1,13 @@
+#!/bin/sh
+#MISE description="Lint go"
+
+golangci-lint version
+golangci-lint config verify
+
+# CI uses golangci/golangci-lint-action defined in .github/workflows/lint.yml,
+# so only run this locally.
+if [ "$CI" = "true" ]; then
+  echo "skipped because CI=true"
+else
+  golangci-lint run --timeout=10m --fix ./...
+fi

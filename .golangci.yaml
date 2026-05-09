@@ -1,0 +1,33 @@
+version: "2"
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
+linters:
+  default: standard
+  enable:
+    - bodyclose
+    - copyloopvar
+    - durationcheck
+    - errname
+    - errorlint
+    - gocritic
+    - gosec
+    - govet
+    - misspell
+    - nakedret
+    - nilerr
+    - revive
+    - staticcheck
+    - unconvert
+    - unused
+    - whitespace
+    - wrapcheck
+  exclusions:
+    presets:
+      - comments
+      - std-error-handling
+    rules:
+      - path: _test\.go
+        linters:
+          - gosec
+          - wrapcheck
